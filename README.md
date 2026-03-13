@@ -22,103 +22,90 @@ Sum =A’B’Cin + A’BCin’ + ABCin + AB’Cin’ = A ⊕ B ⊕ Cin
 
 Carry = AB + ACin + BCin
 
-![image](https://github.com/user-attachments/assets/b09e7332-958e-4e84-9f53-7affd2357d9c)
+![image](https://github.com/naavaneetha/FULL_ADDER_SUBTRACTOR/assets/154305477/0f30ba51-5ffb-4198-845f-18e054f675e7)
 
 **Figure -1 FULL ADDER**
+
+<img width="585" height="260" alt="image" src="https://github.com/user-attachments/assets/017bbbba-4645-4f4e-b241-5634f760d385" />
 
 **Full Subtractor**
 
 A full subtractor is a combinational circuit that performs subtraction involving three bits, namely minuend, subtrahend, and borrow-in . It accepts three inputs: minuend, subtrahend and a borrow bit and it produces two outputs: difference and borrow.
 
-![image](https://github.com/user-attachments/assets/ca8e58aa-8470-42ed-8d58-e2f5effe7f02)
-
-**Figure -1 FULL SUBTRACTOR**
+![image](https://github.com/naavaneetha/FULL_ADDER_SUBTRACTOR/assets/154305477/02b24f51-ab51-4304-9ad6-7b81ffc1ead5)
 
 Diff = A ⊕ B ⊕ Bin 
 
 Borrow out = A'Bin + A'B + BBin
 
 **Truthtable**
-FULL ADDER
 
-![image](https://github.com/user-attachments/assets/4d112be1-6902-42f6-a80f-d6ffa1814c34)
-
-FULL SUBTRACTOR
-
-![image](https://github.com/user-attachments/assets/affd2a74-295b-48dc-b7c5-3e2de75db7d3)
-
-
-
+<img width="382" height="268" alt="image" src="https://github.com/user-attachments/assets/dae1e019-784d-4252-8273-32463b0705a7" />
 
 **Procedure**
 
-Type the program in Quartus software.
-
-Compile and run the program.
-
-Generate the RTL schematic and save the logic diagram.
-
-Create nodes for inputs and outputs to generate the timing diagram.
-
-For different input combinations generate the timing diagram.
-
+Write the detailed procedure here
 
 **Program:**
-```
-Program to design a full adder and full subtractor circuit and verify its truth table in quartus using Verilog programming. 
+
+ Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming.
+ ~~~
 Developed by: Hariprasath S
 RegisterNumber: 212225040114
-```
-**Full Adder**
+~~~
+~~~
+FULL ADDER
 
-```
-module exp4(df,bo,a,b,bin);
-output df;
-output bo;
-input a;
-input b;
-input bin;
-wire w1,w2,w3;
-assign w1=a^b;
-assign w2=(~a&b);
-assign w3=(~w1&bin);
-assign df=w1^bin;
-assign bo=w2|w3;
-endmodule
-```
-**Full Subtractor**
+module exp3(sum, cout, a, b, cin);
+    output sum;
+    output cout;
+    input a;
+    input b;
+    input cin;
 
-```
-module full_subtractor(diff, borrow, a, b, bin);
-  output diff;
-  output borrow;
-  input a;
-  input b;
-  input bin;
-  assign diff = a ^ b ^ bin;
-  assign borrow = (~a & b) | (~(a ^ b) & bin);
+	 wire w1,w2,w3;
+	 assign w1=a^b;
+	 assign w2=a&b;
+	 assign w3=w1&cin;
+	 assign sum=w1^cin;
+	 assign cout=w2|w3;
 endmodule
 
-```
+FULL SUBTRACTOR
+
+module fullsub(df, bo, a, b, bin);
+
+    output df;
+    output bo;
+    input a;
+    input b;
+    input bin;
+
+    assign df = a ^ b ^ bin;
+    assign bo = (~a & b) | (~(a ^ b) & bin);
+
+endmodule
+~~~
+
 
 **RTL Schematic**
-**Full Adder**
 
-![image](https://github.com/user-attachments/assets/993f7ad7-9159-46a4-8769-48a7a7b701f3)
+**Output:
+FULL ADDER
 
-**Full Subtractor**
-![image](https://github.com/user-attachments/assets/5d7d76ec-1151-443f-adde-8d9412dd223b)
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/2d7fcd4f-7c0a-4fc0-9f76-13395df286b0" />
+FULL SUBTRACTOR
 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/5065adf4-1b3f-4c60-b3f8-144928b03e83" />
 
-**Output Timing Waveform**
-**Full Adder**
+Timing Waveform**
+FULL ADDER
 
-![image](https://github.com/user-attachments/assets/3bc3543a-312f-4602-b767-8f7462e5c877)
+<img width="1920" height="1080" alt="Screenshot (156)" src="https://github.com/user-attachments/assets/abf38b6e-effc-4de0-ab7f-85773738be2a" />
 
-**Full Subtractor**
-![image](https://github.com/user-attachments/assets/0d64db0f-5039-49e4-89e9-02676e122512)
+FULL SUBTRACTOR
 
-
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/cba379f0-86da-47fe-92c1-5374aa939fde" />
 
 **Result:**
 
